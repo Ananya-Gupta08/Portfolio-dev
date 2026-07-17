@@ -6,15 +6,12 @@ export function ContactForm() {
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
+  const [errorMessage, setErrorMessage] = useState("");
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setState("sending");
+    setErrorMessage("");
     const form = new FormData(e.currentTarget);
-    const website = String(form.get("website") || "");
-    if (website) {
-      setState("sent");
-      return;
-    }
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
     const inquiryType = String(form.get("subject") || "General enquiry");
     try {
@@ -33,13 +30,22 @@ export function ContactForm() {
           name: form.get("name"),
           email: form.get("email"),
           message: form.get("message"),
-          botcheck: "",
+          botcheck: form.get("botcheck") || "",
         }),
       });
-      const result = (await res.json()) as { success?: boolean };
-      if (!res.ok || !result.success) throw new Error("Delivery failed");
+      const result = (await res.json()) as {
+        success?: boolean;
+        message?: string;
+      };
+      if (!res.ok || !result.success)
+        throw new Error(result.message || "Web3Forms rejected the message.");
       setState("sent");
-    } catch {
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "The message could not be delivered.",
+      );
       setState("error");
     }
   }
@@ -101,8 +107,8 @@ export function ContactForm() {
         />
       </label>
       <label className="honey" aria-hidden="true">
-        Company site
-        <input name="website" tabIndex={-1} autoComplete="off" />
+        Leave this field empty
+        <input name="botcheck" type="checkbox" tabIndex={-1} />
       </label>
       <button className="button primary" disabled={state === "sending"}>
         {state === "sending" ? (
@@ -115,7 +121,8 @@ export function ContactForm() {
       </button>
       {state === "error" && (
         <p className="form-error" role="alert">
-          That didn’t go through. Please try again or email me directly.
+          {errorMessage ||
+            "That didn’t go through. Please try again or email me directly."}
         </p>
       )}
     </form>
