@@ -39,7 +39,7 @@ export default function Resume() {
         <section>
           <h2>Education</h2>
           <div className="resume-entry">
-            <span>2023—2027</span>
+            <span>2024—2028</span>
             <div>
               <h3>B.Tech, Computer Science</h3>
               <b>Bennett University</b>

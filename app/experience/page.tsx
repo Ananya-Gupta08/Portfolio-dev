@@ -8,19 +8,32 @@ export const metadata: Metadata = {
   alternates: { canonical: "/experience" },
 };
 export default function Experience() {
-  const groups = [
-    ["Frontend", ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"]],
-    ["Backend", ["Node.js", "Express.js", "FastAPI", "REST APIs", "JWT Authentication", "Firebase Authentication"]],
-    ["Databases", ["MongoDB", "PostgreSQL", "MySQL", "Firebase"]],
-    ["Machine Learning", ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"]],
-    ["Tools", ["Git", "GitHub", "Postman", "Vercel", "Render", "VS Code"]],
-  ];
   const workStyle = [
-    ["01", "Ownership", "I enjoy taking responsibility for the features I build and seeing them through from idea to deployment."],
-    ["02", "Problem solving", "I like breaking complex problems into smaller, manageable pieces before finding a practical solution."],
-    ["03", "User first", "I naturally think from the user’s perspective and aim to build software that feels intuitive and useful."],
-    ["04", "Continuous learning", "I enjoy exploring new technologies and adapting quickly whenever a project demands it."],
-    ["05", "Attention to detail", "I care about the small details that improve the user experience and code quality, while learning to balance polish with efficiency."],
+    [
+      "01",
+      "Ownership",
+      "I enjoy taking responsibility for the features I build and seeing them through from idea to deployment.",
+    ],
+    [
+      "02",
+      "Problem solving",
+      "I like breaking complex problems into smaller, manageable pieces before finding a practical solution.",
+    ],
+    [
+      "03",
+      "User first",
+      "I naturally think from the user’s perspective and aim to build software that feels intuitive and useful.",
+    ],
+    [
+      "04",
+      "Continuous learning",
+      "I enjoy exploring new technologies and adapting quickly whenever a project demands it.",
+    ],
+    [
+      "05",
+      "Attention to detail",
+      "I care about the small details that improve the user experience and code quality, while learning to balance polish with efficiency.",
+    ],
   ];
   return (
     <>
@@ -33,8 +46,13 @@ export default function Experience() {
           into a developer who enjoys building products with real-world impact.
         </p>
       </header>
-      <section className="experience section" aria-labelledby="professional-experience">
-        <p className="eyebrow" id="professional-experience">Professional experience</p>
+      <section
+        className="experience section"
+        aria-labelledby="professional-experience"
+      >
+        <p className="eyebrow" id="professional-experience">
+          Professional experience
+        </p>
         <article className="experience-row">
           <span>Jan—May 2026</span>
           <div>
@@ -53,12 +71,22 @@ export default function Experience() {
                 <li>Connected React interfaces with backend REST APIs.</li>
                 <li>Developed features with React.js and JavaScript.</li>
                 <li>Worked with Firebase Authentication.</li>
-                <li>Fixed frontend and backend bugs and improved responsiveness.</li>
+                <li>
+                  Fixed frontend and backend bugs and improved responsiveness.
+                </li>
               </ul>
               <h3>Technologies</h3>
-              <p>React.js · JavaScript · Firebase Authentication · REST APIs · Git · GitHub · HTML · CSS</p>
+              <p>
+                React.js · JavaScript · Firebase Authentication · REST APIs ·
+                Git · GitHub · HTML · CSS
+              </p>
               <h3>What I learned</h3>
-              <p>This internship showed me what production-ready work requires beyond writing code. I learned to collaborate, debug patiently, keep code maintainable, and consider the user while building a feature.</p>
+              <p>
+                This internship showed me what production-ready work requires
+                beyond writing code. I learned to collaborate, debug patiently,
+                keep code maintainable, and consider the user while building a
+                feature.
+              </p>
             </div>
           </div>
         </article>
@@ -76,16 +104,26 @@ export default function Experience() {
             <div className="experience-detail">
               <h3>Key contributions</h3>
               <ul>
-                <li>Performed exploratory data analysis across city junctions.</li>
+                <li>
+                  Performed exploratory data analysis across city junctions.
+                </li>
                 <li>Identified traffic patterns and peak-hour trends.</li>
                 <li>Prepared data and engineered features for prediction.</li>
                 <li>Built, evaluated, and compared machine-learning models.</li>
                 <li>Presented findings through clear visualisations.</li>
               </ul>
               <h3>Technologies</h3>
-              <p>Python · Pandas · NumPy · Scikit-learn · Matplotlib · Jupyter Notebook</p>
+              <p>
+                Python · Pandas · NumPy · Scikit-learn · Matplotlib · Jupyter
+                Notebook
+              </p>
               <h3>What I learned</h3>
-              <p>I learned that useful machine learning starts with understanding the data, not choosing an impressive algorithm. The experience strengthened my analytical thinking and gave me a practical view of predictive modelling.</p>
+              <p>
+                I learned that useful machine learning starts with understanding
+                the data, not choosing an impressive algorithm. The experience
+                strengthened my analytical thinking and gave me a practical view
+                of predictive modelling.
+              </p>
             </div>
           </div>
         </article>
@@ -94,32 +132,28 @@ export default function Experience() {
         <div className="proof-card">
           <div>
             <p className="eyebrow">Learning beyond the classroom</p>
-            <h2>Building independently<br /><em>taught me ownership.</em></h2>
+            <h2>
+              Building independently
+              <br />
+              <em>taught me ownership.</em>
+            </h2>
           </div>
           <div className="proof-notes">
             <span>From idea to product</span>
-            <p>MyVigi, CitySetu, and TurningPoint made me think beyond code. I had to understand users, design workflows, structure data, implement authentication, debug problems, and deploy complete applications.</p>
+            <p>
+              MyVigi, CitySetu, and TurningPoint made me think beyond code. I
+              had to understand users, design workflows, structure data,
+              implement authentication, debug problems, and deploy complete
+              applications.
+            </p>
             <span>What changed</span>
-            <p>Working independently taught me to make technical decisions, take responsibility for the result, and improve a product through iteration.</p>
+            <p>
+              Working independently taught me to make technical decisions, take
+              responsibility for the result, and improve a product through
+              iteration.
+            </p>
           </div>
         </div>
-      </section>
-      <section className="capabilities section">
-        <p className="eyebrow">Technologies I’ve worked with</p>
-        <div>
-          {groups.map((g) => (
-            <div key={g[0] as string}>
-              <h2>{g[0]}</h2>
-              {(g[1] as string[]).map((x) => (
-                <span key={x}>{x}</span>
-              ))}
-            </div>
-          ))}
-        </div>
-        <p>
-          I choose tools based on the problem and I’m comfortable learning
-          something new when a project needs it.
-        </p>
       </section>
       <section className="values section">
         <p className="eyebrow">How I work</p>
@@ -132,7 +166,11 @@ export default function Experience() {
         ))}
       </section>
       <section className="about-cta section">
-        <p>Looking ahead.<br /><span>Ready for the next challenge.</span></p>
+        <p>
+          Looking ahead.
+          <br />
+          <span>Ready for the next challenge.</span>
+        </p>
         <Link className="button primary" href="/projects">
           View projects <Arrow />
         </Link>

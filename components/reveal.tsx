@@ -1,6 +1,7 @@
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { motion as motionSystem } from "@/lib/motion";
 export function Reveal({
   children,
   className = "",
@@ -17,7 +18,11 @@ export function Reveal({
       initial={reduce ? false : { opacity: 0, y: 28 }}
       whileInView={reduce ? {} : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-8%" }}
-      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: motionSystem.duration.slow,
+        delay,
+        ease: motionSystem.ease,
+      }}
     >
       {children}
     </motion.div>

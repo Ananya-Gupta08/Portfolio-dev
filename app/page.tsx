@@ -2,7 +2,9 @@ import Link from "next/link";
 import { Arrow, ArrowUpRight } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { ProjectVisual } from "@/components/project-visual";
+import { SkillCloud } from "@/components/skill-cloud";
 import { projects } from "@/lib/projects";
+import { skillGroups } from "@/lib/skills";
 
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
@@ -14,22 +16,22 @@ export default function Home() {
             <i />
             Available for internships
           </span>
-            <span> Delhi, India</span>
+          <span> Delhi, India</span>
         </div>
         <div className="hero-title">
           <Reveal>
             <h1>
               I like building
               <br />
-              software that solves
+              softwares that solve
               <br />
               <em>real problems.</em>
             </h1>
           </Reveal>
           <Reveal className="hero-intro" delay={0.15}>
             <p>
-              I’m Ananya, a Computer Science student and full-stack developer.
-              I turn ideas into products people can actually use.
+              I’m Ananya, a Computer Science student and full-stack developer. I
+              turn ideas into products people can actually use.
             </p>
             <div>
               <Link className="button primary" href="/projects">
@@ -48,42 +50,6 @@ export default function Home() {
           <span>Scroll to explore ↓</span>
         </div>
       </section>
-      <section className="manifesto section">
-        <Reveal>
-          <p className="eyebrow">How I approach a project</p>
-          <h2>
-            Understand first.
-            <br />
-            Then <em>build.</em>
-          </h2>
-        </Reveal>
-        <div className="manifesto-grid">
-          <Reveal>
-            <span>01</span>
-            <h3>Start with the person using it.</h3>
-            <p>
-              Before I write code, I try to understand the actual problem,
-              who has it, and what would make the product genuinely useful.
-            </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <span>02</span>
-            <h3>Break the problem down.</h3>
-            <p>
-              Large problems become manageable when I separate them into
-              smaller decisions I can build, test, and explain.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <span>03</span>
-            <h3>Polish what matters.</h3>
-            <p>
-              I’m particular about the details. I keep improving a product
-              until the experience feels clear, consistent, and complete.
-            </p>
-          </Reveal>
-        </div>
-      </section>
       <section className="selected section">
         <div className="section-head">
           <div>
@@ -96,7 +62,8 @@ export default function Home() {
           </div>
           <p>
             Each project started with a problem I wanted to understand. The case
-            studies cover what mattered, how I approached it, and what I learned.
+            studies cover what mattered, how I approached it, and what I
+            learned.
           </p>
         </div>
         <div className="project-stack">
@@ -136,6 +103,21 @@ export default function Home() {
             View all projects <Arrow />
           </Link>
         </div>
+      </section>
+      <section className="capabilities section home-skills">
+        <Reveal>
+          <p className="eyebrow">Technologies I’ve worked with</p>
+          <h2 className="skills-heading">
+            Tools I use to turn ideas
+            <br />
+            <span className="serif">into working products.</span>
+          </h2>
+        </Reveal>
+        <SkillCloud groups={skillGroups} />
+        <p>
+          I choose tools based on the problem and I’m comfortable learning
+          something new when a project needs it.
+        </p>
       </section>
       <section className="proof section">
         <Reveal className="proof-card">
@@ -178,7 +160,8 @@ export default function Home() {
         <Reveal>
           <p>
             Have a role, idea, or
-            <br />problem worth discussing?
+            <br />
+            problem worth discussing?
           </p>
           <Link href="/contact">
             Let’s talk <ArrowUpRight />
